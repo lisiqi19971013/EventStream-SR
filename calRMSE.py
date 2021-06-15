@@ -38,16 +38,13 @@ def calRMSE(eventOutput, eventGt):
 
 
 
-path = "./dataset/N-MNIST/SR_Test"
-path1 = "./dataset/N-MNIST/Res_Conv/"
+path = "./dataset/N-MNIST/Res_Conv/"
 _H, _W, _T = [34, 34, 350]
 
-# path = "./dataset/Cifar10-DVS/SR_Test"
-# path1 = "./dataset/Cifar10-DVS/Res_Conv"
+# path = "./dataset/Cifar10-DVS/Res_Conv"
 # _H, _W, _T = [128, 128, 1500]
 
-# path = "./dataset/ASL/SR_Test"
-# path1 = "./dataset/ASL/Res_Conv"
+# path = "./dataset/ASL/Res_Conv"
 # _H, _W, _T = [240, 180, 600]
 
 classList = os.listdir(os.path.join(path, 'HR'))
@@ -60,11 +57,11 @@ RMSEListNoTimeLoss, RMSEListNoTimeLoss_s, RMSEListNoTimeLoss_t = [], [], []
 i = 1
 for n in classList:
     print(n)
-    p1 = os.path.join(path1, 'HRPre', n)              # Output
+    p1 = os.path.join(path, 'HRPre', n)              # Output
     p2 = os.path.join(path, 'HR', n)                 # Gt
     # p3 = os.path.join(path, 'previousWork', n)      # Previous Work
-    # p4 = os.path.join(path1, 'HRPre no ecmLoss', n)   # no ecmLoss
-    # p5 = os.path.join(path1, 'HRPre no timeLoss', n)  # no timeLoss
+    # p4 = os.path.join(path, 'HRPre no ecmLoss', n)   # no ecmLoss
+    # p5 = os.path.join(path, 'HRPre no timeLoss', n)  # no timeLoss
     # print(p3)
 
     k = 1
@@ -108,7 +105,7 @@ for n in classList:
 print(sum(RMSEListOurs) / len(RMSEListOurs))
 
 
-with open(path1 + '/results.txt', 'w') as f:
+with open(path + '/results.txt', 'w') as f:
     f.writelines(p1 + '\n')
     # f.writelines(p2 + '\n')
     # f.writelines(p3 + '\n')
