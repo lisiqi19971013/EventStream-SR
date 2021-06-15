@@ -1,0 +1,16 @@
+simulation:
+    Ts: 1.0
+    tSample: 1500
+
+training:
+    error:
+        type: SpikeTime
+
+neuron:
+    type:     SRMALPHA
+    theta:    10
+    tauSr:    1
+    tauRef:   1
+    scaleRef: 2     # relative to theta
+    tauRho:   1     # relative to theta
+    scaleRho: 1
