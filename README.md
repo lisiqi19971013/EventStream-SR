@@ -26,7 +26,11 @@ This is our raw, unintegrated code.
 
 ## Data preparing
 
-1. Our datasets is available at https://drive.google.com/drive/folders/1l1v6eqBxRXbRFa6yNphfTy5eVbi_myck?usp=sharing
+1. To ensure anonymity, we shared our data with anonymous accounts called *iccvSubmission*
+   -  N-MNIST: https://drive.google.com/file/d/19VNS5gJBHyKKCzsyg9OlBrw3o1dx5UM2/view?usp=sharing
+   - Cifar10-DVS: https://drive.google.com/file/d/1od7m1AUA6YinG7qbcXU0pNWWYFSlP37g/view?usp=sharing
+   - ASL-DVS: 
+   - Event Camera Dataset: https://drive.google.com/file/d/1IlaacDk56pNVHLLHJWFrghZvruaLP-iK/view?usp=sharing
 2. Download the datasets and unzip them to the folder (./dataset/)
 3. Change the corresponding data path in each .py file
 
