@@ -1,5 +1,5 @@
 # EventStream-SR
-This repository is for the ICCV 2021 anonymous submission: ___Event Stream Super-Resolution via Spatiotemporal Constraint Learning___. 
+This repository is for the ICCV 2021 paper: ___Event Stream Super-Resolution via Spatiotemporal Constraint Learning___. 
 
 This is our raw, unintegrated code.
 
