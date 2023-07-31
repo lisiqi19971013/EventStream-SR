@@ -184,3 +184,28 @@ class NetworkBasic(torch.nn.Module):
 #
 #         return spikes_output
 
+if __name__ == '__main__':
+    import os
+    from slayerSNN.spikeFileIO import event
+
+    def readNpSpikes(filename, timeUnit=1e-3):
+        npEvent = np.load(filename)
+        return event(npEvent[:, 1], npEvent[:, 2], npEvent[:, 3], npEvent[:, 0] * timeUnit * 1e3)
+
+
+    os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+
+    x = readNpSpikes('/repository/lisiqi/DVS/Classification/N-MNIST/SR_Test/LR/4/10.npy')
+    x = x.toSpikeTensor(torch.zeros((2, 17, 17, 350)))
+    x = torch.unsqueeze(x, dim=0).cuda()
+
+    netParams = snn.params('./nMnist/network.yaml')
+    m = NetworkBasic(netParams)
+    m = torch.nn.DataParallel(m).cuda()
+    with torch.no_grad():
+        out = m(x)
+    print((out == 0).sum(), (out == 1).sum(), ((out != 0) & (out != 1)).sum())
+
+    # 如果是后者，这可能是正常的，是指输出了幅值为2 3 4的脉冲，而不都是单位脉冲。我记得slayersnn库输出的spike好像是有幅值的。
+    # 同样，我们输入的spike有些也有幅值，由于我们将原始事件流沿时间维度堆叠到tSample个channel（e.g., tSample=350 for nMNIST dataset），
+    # 在压缩过程中，如短时间内同一像素点触发多个event，会堆叠成一个倍数幅值的spike。
