@@ -26,11 +26,7 @@ This is our raw, unintegrated code.
 
 ## Data preparing
 
-1. To ensure anonymity, we shared our data with anonymous accounts called *iccvSubmission*
-   -  N-MNIST: https://drive.google.com/file/d/19VNS5gJBHyKKCzsyg9OlBrw3o1dx5UM2/view?usp=sharing
-   - Cifar10-DVS: https://drive.google.com/file/d/1od7m1AUA6YinG7qbcXU0pNWWYFSlP37g/view?usp=sharing
-   - ASL-DVS: https://drive.google.com/file/d/17E7Doq3F9Cn-QdGlJLmEvHlN5KMs-h9f/view?usp=sharing
-   - Event Camera Dataset: https://drive.google.com/file/d/1IlaacDk56pNVHLLHJWFrghZvruaLP-iK/view?usp=sharing
+1. Our datasets are available at https://github.com/lisiqi19971013/event-based-datasets. 
 2. Download the datasets and unzip them to the folder (./dataset/)
 3. Change the corresponding data path in each .py file
 
